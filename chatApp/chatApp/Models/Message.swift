@@ -13,3 +13,15 @@ struct Message: Identifiable, Codable {
     var received: Bool
     var timestamp: Date
 }
+
+extension Message {
+	func toDictionary() -> [String: Any] {
+		return [
+			"id": id,
+			"text": text,
+			"isReceived": received,
+			"timestamp": timestamp.timeIntervalSince1970 * 1000
+		]
+	}
+}
+
