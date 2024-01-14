@@ -5,42 +5,36 @@
 //  Created by thrxmbxne on 21/12/23.
 //
 
+
 import SwiftUI
-
-
-struct TitleRow: View {
-  var imageName = "imageHA"
-  var name = "Harsh Agrawal"
-
-  var body: some View {
-    HStack(spacing: 20) {
-      Image(imageName)
-        .resizable()
-        .aspectRatio(contentMode: .fill)
-        .frame(width: 50, height: 50)
-        .cornerRadius(50)
-
-      VStack(alignment: .leading) {
-        Text(name)
-          .font(.title).bold()
-
-        Text("Online")
-          .font(.caption)
-          .foregroundColor(.green)
-      }
-      .frame(maxWidth: .infinity, alignment: .leading)
-
-      Image(systemName: "phone.fill")
-        .foregroundColor(.gray)
-        .padding(10)
-        .background(.white)
-        .cornerRadius(50)
-    }
-    .padding()
-  }
+struct TitleRow : View{
+	var imageName = "imageHA"
+	var name: String = "Harsh Agrawal"
+	var backgroundColor: Color = Color("Grayish").opacity(0.3)
+	var body: some View {
+		ZStack{
+			backgroundColor
+				.frame(height: 80)
+			HStack{
+				Image(imageName)
+					.resizable()
+					.aspectRatio(contentMode: .fill)
+					.frame(width: 50,height: 50)
+					.cornerRadius(50)
+				Text(name)
+					.font(.title)
+					.foregroundColor(.white)
+					.padding()
+					.offset(CGSize(width: 10.0, height: 2))
+				Image(systemName: "phone.fill")
+					.foregroundColor(.gray)
+					.padding()
+					.cornerRadius(20)
+					.offset(CGSize(width: 20, height: 2))
+			}
+		}
+	}
 }
 
 #Preview {
-  TitleRow()
-   .background(Color("Grayish"))
-}
+	TitleRow()
